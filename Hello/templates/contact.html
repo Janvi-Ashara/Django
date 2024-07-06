@@ -1,5 +1,37 @@
-{% extends "base.html" %} 
+{% extends "base.html" %} {% block title %}contact{% endblock title %}
+{% block body %} 
+<div class="container-fluid px-0 mb-3">
+  <img src="/static/img/back.jpg" height="400px" width="500px "class="d-block w-100 mx-0" alt="..."/>
+  </div>
 
-{% block title %}contact{% endblock title %} 
 
-{% block body %} This is contact block {% endblock body %}
+<div class="container mb-3 py-4 ">
+  <h1 class="text-center">Contact Us</h1>
+  <form method="post" action ="/contact">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name"  name="name" placeholder="Enter your name:" />
+    </div>
+    <br/>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" id="email" name= "email" placeholder="Enter your Email" />
+  </div>
+  <br/>
+  <div class="form-group">
+      <label for="phone">Mobile Number</label>
+      <input type="phone" class="form-control" id="phone" name="phone" placeholder="Enter your phone Number" />
+  </div>
+  <br/>
+  <div class="form-group">
+      <label for="desc">Tell me about what you want to contact me for ...</label>
+      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="desc"></textarea>
+  </div>
+
+    <br/>
+    <button type="btn btn-primary" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+
+{% endblock body %}
